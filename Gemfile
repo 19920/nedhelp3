@@ -42,9 +42,9 @@ gem 'devise', '~> 4.2'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'net_http_ssl_fix', '~> 0.0.9'
-gem 'carrierwave'
+
 gem 'mini_magick'
-gem 'fog'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
