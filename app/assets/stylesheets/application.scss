@@ -1,0 +1,65 @@
+@import "bootstrap";
+
+.home-landing {
+   //  margin-top: 50px;
+
+    .jumbotron {
+        justify-content: center;
+        text-align: center;
+    }
+}
+.cover{
+  height: 100%
+}
+.text{
+  padding-top: 500px;
+}
+.text1{
+  padding-top: 30px;
+}
+.riders{
+    margin-top: 100px;
+}
+
+.landing {
+  background-image: url(humanity.jpg);
+   margin-top: 50px;
+   height: 1100px;
+   background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+   .jumbotron2 {
+
+       justify-content: center;
+       text-align: center;
+
+
+   }
+
+
+   #logo {
+       opacity: 0.9;
+   }
+}
+
+.login {
+   margin-top: 50px;
+}
+.navigation{
+  color: white;
+}
+ul {
+  padding-left: 0px;
+  list-style: none;
+}
+.inner{
+float: right;
+margin-right: 10px;
+margin-bottom: 90px;
+margin-top: 0px;
+padding-top: 0px;
+}
+.conversations{
+  border: 2px solid rgb(0, 0, 0);
+}

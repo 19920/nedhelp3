@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Needhelp</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <% if user_signed_in? %>
+      <%= react_component "SignUp" %>
+      <div class = "inner">
+      <p>Signed in as:<%= current_user.last_name %> <%= link_to('Logout', destroy_user_session_path, method: :delete) %></p>
+    </div>
+    <% else %>
+      <%= react_component "Navbar" %>
+    <% end %>
+
+    <%= yield %>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<%= simple_form_for(@request) do |f| %>
+  <%= f.error_notification %>
+
+<div class="container">
+
+  <div class="control-group">
+  	<%= f.label :Title,class: 'control-label' %>
+    <div class="medium-input">
+      <%= f.text_field :title, id: :title, autofocus: true,class: "form-control" %>
+    </div>
+  </div>
+  <div class="control-group">
+  	<%= f.label :Description,class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, id: :description,  autofocus: true, class: "form-control" %>
+    </div>
+  </div>
+  <div class="control-group">
+  	<%= f.label :Address,class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, id: :address,  autofocus: true,class: "form-control" %>
+    </div>
+  </div>
+ <div class="control-group">
+    <%= f.label :Request_type ,class: 'control-label'%>
+    <div class="controls">
+     <%= f.select(:request_type, options_for_select([['Material ','Material'],['Help ','Help']])) %>
+    </div>
+  </div>
+
+
+  <div class="control-group">
+     <%= f.label :Answers_number ,class: 'control-label'%>
+     <div class="controls">
+      <%= f.select(:answers_count, options_for_select([['0','0']])) %>
+     </div>
+   </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+  <div>
+<% end %>

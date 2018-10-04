@@ -1,0 +1,60 @@
+<div class="container riders">
+  <p id="notice"><%= notice %></p>
+      <p><strong>we have now <%=@requests.length %> Requests records :</strong><br>
+      	<span>OBs! You can not volunteer on your own request!</span>
+<p><%= link_to 'New Request', new_request_path %></p>
+      </p>
+  <div class ="row-padding" id="demo">
+  <table class="table table-bordered table-hover table-condensed ">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Address</th>
+          <th>Requet_type</th>
+          <th>Owner</th>
+          <th>Number of messages</th>
+          <th>Date of creation</th>
+          <th>Action</th>
+
+
+        </tr>
+      </thead>
+
+      <tbody>
+
+            <% @requests.each do |request| %>
+              <% if request.user == current_user %>
+            <tr>
+               <td><%= request.id %></td>
+                <td><%= request.title %></td>
+                 <td><%= request.address %></td>
+                 <td><%= request.request_type %></td>
+                 <td><%= request.user.last_name%></td>
+                 <td><%= request.answers_count%></td>
+                 <td><%= request.created_at%></td>
+
+
+                 <td>
+
+                  <div class="btn-group btn-group-sm">
+                    <% if request.user == current_user %>
+                      <%= link_to 'View', request, class: "btn btn-success" %>
+
+
+                      <% end %>
+                    </div>
+                    <div class="btn-group btn-group-sm">
+
+                    <%= link_to 'View', request, class: "btn btn-success" %>
+                      <%= link_to 'Republish', request, class: "btn btn-success" %>
+
+                 </td>
+          </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= render ("layouts/stats") %>
+</div>

@@ -1,0 +1,23 @@
+<div class = "container m-50">
+  <h2 class="text-center">Messages</h2>
+  <div class ="text-center jumbotron">
+    <ul>
+      <% @messages.each do |message| %>
+        <% if message.body %>
+
+            <p><%= message.user.last_name %>:  <%= message.body %></p>
+
+
+        <% end %>
+      <% end %>
+    </ul>
+
+    <%= form_for [@conversation, @message] do |f| %>
+      <div class="field">
+        <%= f.text_area :body, placeholder: "Your message" %>
+      </div>
+
+      <%= f.submit "Send" %>
+    <% end %>
+  </div>
+</div>
