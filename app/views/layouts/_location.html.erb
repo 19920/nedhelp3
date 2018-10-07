@@ -50,7 +50,7 @@
           });
 
           $.getJSON("/requests.json", function (request)  {
-            $.each(request, function(key, request) {  
+            $.each(request, function(key, request) {
               var latLng =  (request.answers_count == 5)? "null " : new google.maps.LatLng( request.latitude , request.longitude );
                 var marker = new google.maps.Marker({
                     position: latLng,
