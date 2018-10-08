@@ -38,7 +38,7 @@
 
                     <div class="btn-group btn-group-sm">
 
-                    <% if request.created_at < DateTime.now - (1.0) %>
+                    <% if request.created_at < DateTime.now - (1.0) ||request.answers_count == 5 %>
                     <%= link_to 'Republish', edit_request_path(request),class: "btn btn-warning" %>
                     <% else %>
                     <button class="btn-success">Active</button>
