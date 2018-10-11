@@ -22,6 +22,14 @@
   <%= @request.request_type %>
 </p>
 <p>
+  <p>
+    <strong> Number of messages:</strong>
+    <%= @request.answers_count %>
+  </p>
+  <p>
+    <strong>Date of creation:</strong>
+     <%= @request.created_at%>
+  </p>
   <strong> By:</strong>
 <%= @request.user.last_name %>
 </p>
@@ -31,7 +39,7 @@
         <%= f.radio_button :created_at,DateTime.now()  %>Republish<br/><br/>
         <%= f.button :submit %>
       <% end %>
-      
+
       <% else %>
       <h6> 1. Confirm if you want to help </h6>
 
