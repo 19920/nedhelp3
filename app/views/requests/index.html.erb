@@ -29,7 +29,16 @@
                 <td><%= request.title %></td>
                  <td><%= request.address %></td>
                  <td><%= request.request_type %></td>
-                 <td><%= request.answers_count%></td>
+                 <td>  <ul>
+                     <% @messages.each do |message| %>
+                       <% if message.body %>
+
+                           <p><%= message.user.last_name %></p>
+
+
+                       <% end %>
+                     <% end %>
+                   </ul></td>
                  <td><%= request.created_at%></td>
 
 
@@ -41,7 +50,7 @@
                     <% if request.created_at < DateTime.now - (1.0) ||request.answers_count == 5 %>
                     <%= link_to 'Republish', edit_request_path(request),class: "btn btn-warning" %>
                      <%= link_to 'destroy', request ,class: "btn btn-danger",method: :delete, data: { confirm: 'are you sure?'} %>
-                    <%= link_to 'Show', request_path(request), class: "btn btn-info" %>
+                    <%= link_to 'Show', @request, class: "btn btn-info" %>
                     <% else %>
                     <button class="btn-success">Active</button>
                     <%= link_to 'Show', request_path(request), class: "btn btn-info" %>
