@@ -10,7 +10,7 @@
         <tr>
           <th>ID</th>
           <th>Title</th>
-          <th>Address</th>
+          <th>Request Type</th>
           <th>Action</th>
 
 
@@ -24,7 +24,7 @@
             <tr>
                <td><%= request.id %></td>
                 <td><%= request.title %></td>
-                 <td><%= request.address %></td>
+                 <td><%= request.request_type %></td>
 
 
 
@@ -39,6 +39,7 @@
                     <%= link_to 'Details', request, class: "btn btn-info" %>
                     <% else %>
                     <button class="btn-success">Active</button>
+                     <%= link_to 'destroy', request ,class: "btn btn-danger",method: :delete, data: { confirm: 'are you sure?'} %>
                     <%= link_to 'Details', request, class: "btn btn-info" %>
 
                   <% end %>
