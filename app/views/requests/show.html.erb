@@ -31,16 +31,7 @@
         <%= f.radio_button :created_at,DateTime.now()  %>Republish<br/><br/>
         <%= f.button :submit %>
       <% end %>
-      <ul>
-        <% @messages.each do |message| %>
-          <% if message.body %>
-
-              <p><%= message.user.last_name %></p>
-
-
-          <% end %>
-        <% end %>
-      </ul>
+      
       <% else %>
       <h6> 1. Confirm if you want to help </h6>
 
