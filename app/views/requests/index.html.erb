@@ -29,16 +29,7 @@
                 <td><%= request.title %></td>
                  <td><%= request.address %></td>
                  <td><%= request.request_type %></td>
-                 <td>  <ul>
-                     <% @messages.each do |message| %>
-                       <% if message.body %>
-
-                           <p><%= message.user.last_name %></p>
-
-
-                       <% end %>
-                     <% end %>
-                   </ul></td>
+                 <td><%= request.answers_count%></td>
                  <td><%= request.created_at%></td>
 
 
