@@ -1,13 +1,13 @@
 var Navbar = React.createClass({
-  
-  
+
+
     render: function() {
       return (
        <div className="navigation bg-warning">
          <div className="container">
-          
+
             <div className="navbar navbar-expand-lg navbar-light bg-light text-white fixed-top">
-                    <a className="navbar-brand" href="/"><h4>Söderhamn Hjärtar</h4></a>
+                    <a className="navbar-brand" href="/"><h4>Söderhamn Hjältar</h4></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -18,11 +18,10 @@ var Navbar = React.createClass({
                         </div>
                     </div>
             </div>
-          
+
          </div>
        </div>
-          
+
       );
     }
   });
-  
