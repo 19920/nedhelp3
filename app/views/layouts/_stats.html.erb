@@ -1,13 +1,33 @@
-<div class="container p-10">
-  <div class="row">
-    <div class="col-md-4">
-      <p><strong>fullfiled requests: <%= @requests.where(answers_count: [5]).count %>  </strong></p>
+
+    <div class="request_counter">
+    <div class="container">
+        <h5>Open requests</h5>
+        <h4>
+            <%= Request.where("answers_count < 5").count do |count| %>
+            <% end %>
+        </h4>
+
+        <h5>Completed requests</h5>
+        <h4>
+            <%= Request.where("answers_count >= 5").count do |count| %>
+            <% end %>
+        </h4>
+        <h5>users</h5>
+        <h4>
+            <%= User.count do |count| %>
+            <% end %>
+        </h4>
     </div>
-    <div class="col-md-4">
-      <p><strong>unfulfiled requests: <%=@requests.where(answers_count: [0..4]).count  %></strong></p>
-    </div>
-    <div class="col-md-4">
-      <p><strong>Registered users: <%= @users.length %></strong></p>
-    </div>
-  </div>
-  <div>
+</div>
+
+<script>
+    var time = new Date().getTime();
+    $(document.body).bind("mousemove keypress", function () {
+        time = new Date().getTime();
+    });
+    setInterval(function() {
+        if (new Date().getTime() - time >= 5000) {
+            window.location.reload(true);
+        }
+    }, 1000);
+</script>
