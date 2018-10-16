@@ -24,7 +24,7 @@
 <p>
   <p>
     <strong> Number of messages:</strong>
-    <%= @request.answers_count %>
+    <%= @request.conversations_count%>
   </p>
   <p>
     <strong>Date of creation:</strong>
@@ -36,7 +36,7 @@
       <% if current_user == @request.user %>
 
       <%= simple_form_for @request, url: republish_request_path do |f| %>
-        <%= f.radio_button :created_at,DateTime.now()  %>Republish<br/><br/>
+        
         <%= f.button :submit %>
         <div class="col-md-8">
             <h2>Messages</h2>
@@ -65,7 +65,7 @@
           <%= simple_form_for @request, url: volunteer_request_path do |f| %>
            <%= link_to "Send Message", conversations_path(request_id: @request.id,sender_id: current_user.id,recipient_id: @request.user_id), method: :post %>
 
-        
+
           <% end %>
 
 
