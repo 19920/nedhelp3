@@ -12,4 +12,7 @@ class Request < ApplicationRecord
 
     reverse_geocoded_by :latitude , :longitude
     after_validation :reverse_geocode
+    def volunteered_by?(user)
+      conversations.where(sender_id: user.id).any?
+    end
 end

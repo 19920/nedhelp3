@@ -35,22 +35,39 @@
 </p>
       <% if current_user == @request.user %>
 
-      <%= simple_form_for @request, url: incr_answers_count_request_path do |f| %>
+      <%= simple_form_for @request, url: republish_request_path do |f| %>
         <%= f.radio_button :created_at,DateTime.now()  %>Republish<br/><br/>
         <%= f.button :submit %>
+        <div class="col-md-8">
+            <h2>Messages</h2>
+       <% @request.conversations.each do |conversation| %>
+
+        <% if conversation.sender_id == current_user.id ? conversation.recipient_id : conversation.sender_id %>
+        <% recipient = User.find(conversation.sender_id) %>
+        <% else %>
+            <% recipient = User.find(conversation.recipient_id) %>
+        <% end %>
+        <div class="conversations">
+          <%= link_to recipient.last_name,   conversation_messages_path(conversation)%>
+        </div>
+
+
+      <% end %>
+    </div>
       <% end %>
 
+      <% elsif  @request.volunteered_by?(current_user)%>
+        <p class="text-info">Thank you ! You have already sent a message to the requester owner</p>
       <% else %>
       <h6> 1. Confirm if you want to help </h6>
 
 
-          <%= simple_form_for @request, url: incr_answers_count_request_path do |f| %>
+          <%= simple_form_for @request, url: volunteer_request_path do |f| %>
+           <%= link_to "Send Message", conversations_path(request_id: @request.id,sender_id: current_user.id,recipient_id: @request.user_id), method: :post %>
 
-            <%= f.radio_button :answers_count, 1 %>I can help<br/><br/>
-          <%= f.button :submit, 'confirm'%>
+        
           <% end %>
-          <h6> 2. Send message to the request Owner</h6>
-          <%= link_to "Volunteer", conversations_path(sender_id: current_user,recipient_id: @request.user.id), method: :post %>
+
 
 
 

@@ -13,7 +13,6 @@ var SignUp = React.createClass({
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <a className="nav-item nav-link" href="/welcome_page/location"><h6>Location</h6></a>
                             <a className= "nav-item nav-link" href="/requests"><h6>My Requests</h6></a>
                              <a className="nav-item nav-link" href="/requests/new"><h6>Add Request</h6></a>
                              <a className="nav-item nav-link" href="/conversations"><h6>Inbox</h6></a>

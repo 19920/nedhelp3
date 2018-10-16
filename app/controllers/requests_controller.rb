@@ -55,7 +55,6 @@ class RequestsController < ApplicationController
   # GET /requests/1.json
   def show
       @request = Request.find(params[:id])
-
       @conversation= Conversation.new(id: @request.id)
   end
 
@@ -92,12 +91,12 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1.json
   def update
     @request = Request.find(params[:id])
-        @request.increment! :answers_count
+
 
     respond_to do |format|
-      if @request.update(answers_count_params)
+      if @request.update(conversations_count_params)
          @request.created_at = Time.now
-         @request.answers_count = 0
+         @request.conversations_count = 0
          @request.save
         format.html { redirect_to @request, notice: 'Request was successfully updated.' }
         format.json { render :show, status: :ok, location: @request }
@@ -107,16 +106,18 @@ class RequestsController < ApplicationController
       end
     end
   end
-  def incr_answers_count
+  def republish
+    @request = Request.find(params[:id])
+         @request.created_at = Time.now
+         @request.save
+      redirect_to @request, notice: 'Request was successfully updated.'
+  end
+  def volunteer
        @request = Request.find(params[:id])
-       count = params[:request] && params[:request][:answers_count].to_i
-
-       if count.in? [0,1]
-         @request.update_attributes(answers_count: @request.answers_count + count)
-       end
-
+       @conversation = Conversation.create!(request_id: @request.id,sender_id: current_user.id,recipient_id: @request.user_id)
        redirect_to @request
      end
+
 
   # DELETE /requests/1
   # DELETE /requests/1.json
@@ -133,8 +134,8 @@ class RequestsController < ApplicationController
     def set_request
      @request = Request.find(params[:id])
     end
-    def answers_count_params
-            params.require(:request).permit(:answers_count)
+    def conversations_count_params
+            params.require(:request).permit(:conversations_count)
         end
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
