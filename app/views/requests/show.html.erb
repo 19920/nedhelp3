@@ -6,31 +6,31 @@
 <% if current_user == @request.user %>
 <p class="text-warning">You can not volunteer on your own request </p>
 <% end %>
-  <strong> Title:</strong>
+  <strong class="text-info"> Title:</strong>
   <%= @request.title %>
 </p>
 <p>
-  <strong> Description:</strong>
+  <strong class="text-info"> Description:</strong>
   <%= @request.description %>
 </p>
 <p>
-  <strong> Address:</strong>
+  <strong class="text-info"> Address:</strong>
   <%= @request.address %>
 </p>
 <p>
-  <strong> Type:</strong>
+  <strong class="text-info"> Type:</strong>
   <%= @request.request_type %>
 </p>
 <p>
   <p>
-    <strong> Number of messages:</strong>
+    <strong class="text-info"> Number of messages:</strong>
     <%= @request.conversations_count%>
   </p>
   <p>
-    <strong>Date of creation:</strong>
+    <strong class="text-info">Date of creation:</strong>
      <%= @request.created_at%>
   </p>
-  <strong> By:</strong>
+  <strong class="text-info"> By:</strong>
 <%= @request.user.last_name %>
 </p>
       <% if current_user == @request.user %>
@@ -40,7 +40,7 @@
         <%= f.button :submit %>
         <div class="col-md-8">
             <h2>Messages</h2>
-          
+
        <% @request.conversations.each do |conversation| %>
 
         <% if conversation.sender_id == current_user.id ? conversation.recipient_id : conversation.sender_id %>

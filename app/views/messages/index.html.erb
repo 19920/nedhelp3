@@ -4,7 +4,6 @@
     <ul>
       <% @messages.each do |message| %>
         <% if message.body %>
-
             <p><span class="text-info"><%= message.user.last_name %></span>: <span class="text-black"> <%= message.body %></span></p>
 
 
@@ -19,7 +18,7 @@
 
       <%= f.submit "Send" %>
     <% end %>
-    <%= link_to 'Show', requests_path %>
+
   </div>
 
 </div>
