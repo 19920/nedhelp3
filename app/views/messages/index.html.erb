@@ -1,11 +1,11 @@
-<div class = "container m-50">
+<div class = "container riders landing ">
   <h2 class="text-center">Messages</h2>
-  <div class ="text-center jumbotron">
+  <div class ="text-center">
     <ul>
       <% @messages.each do |message| %>
         <% if message.body %>
 
-            <p><%= message.user.last_name %>:  <%= message.body %></p>
+            <p><span class="text-info"><%= message.user.last_name %></span>: <span class="text-black"> <%= message.body %></span></p>
 
 
         <% end %>
@@ -19,5 +19,7 @@
 
       <%= f.submit "Send" %>
     <% end %>
+    <%= link_to 'Show', requests_path %>
   </div>
+
 </div>

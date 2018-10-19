@@ -1,12 +1,9 @@
 @import "bootstrap";
 
-.home-landing {
-   //  margin-top: 50px;
 
-    .jumbotron {
-        justify-content: center;
-        text-align: center;
-    }
+.table{
+    width: 100%;
+
 }
 .cover{
   height: 100%
@@ -22,14 +19,14 @@
 }
 .requesttitle{
   margin-top: 15px;
+  color: white;
 }
 .landing {
-  background-image: image-url('humanity.jpg');
   width: 100%;
    margin-top: 50px;
    height: 1100px;
-   background-position: center;
-    background-repeat: no-repeat;
+
+
     background-size: cover;
 
    .jumbotron2 {
@@ -66,3 +63,9 @@ padding-top: 0px;
 .conversations{
   border: 2px solid rgb(0, 0, 0);
 }
+ @media only screen and (max-width: 760px),
+ (min-device-width: 768px) and (max-device-width: 1024){
+   table,thead,tbody,th,td,tr {
+     display:  block;
+   }
+ }

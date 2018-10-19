@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container ">
+<div class="container riders landing">
   <h2 class="requesttitle">Request no: <%= @request.id %></h2>
 <p
 <% if current_user == @request.user %>
@@ -36,10 +36,11 @@
       <% if current_user == @request.user %>
 
       <%= simple_form_for @request, url: republish_request_path do |f| %>
-        
+
         <%= f.button :submit %>
         <div class="col-md-8">
             <h2>Messages</h2>
+          
        <% @request.conversations.each do |conversation| %>
 
         <% if conversation.sender_id == current_user.id ? conversation.recipient_id : conversation.sender_id %>
@@ -50,7 +51,6 @@
         <div class="conversations">
           <%= link_to recipient.last_name,   conversation_messages_path(conversation)%>
         </div>
-
 
       <% end %>
     </div>
