@@ -48,8 +48,8 @@
         <% else %>
             <% recipient = User.find(conversation.recipient_id) %>
         <% end %>
-        <div class="conversations">
-          <%= link_to recipient.last_name,   conversation_messages_path(conversation)%>
+        <div class="conversations text-warning">
+          <p><%= link_to recipient.last_name,   conversation_messages_path(conversation)%></p>
         </div>
 
       <% end %>
@@ -57,7 +57,7 @@
       <% end %>
 
       <% elsif  @request.volunteered_by?(current_user)%>
-        <p class="text-info">Thank you ! You have already sent a message to the requester owner</p>
+        <p class="text-warning">Thank you ! You have already sent a message to the requester owner</p>
       <% else %>
       <h6> 1. Confirm if you want to help </h6>
 
