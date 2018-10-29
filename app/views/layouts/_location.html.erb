@@ -52,7 +52,7 @@
 
           $.getJSON("/requests.json", function (request)  {
             $.each(request, function(key, request) {
-              var latLng =  ((request.conversations_count == 5)||(request.created_at < DateTime.now - (1.0))? "null " : new google.maps.LatLng( request.latitude , request.longitude );
+              var latLng =  (request.conversations_count == 5)? "null " : new google.maps.LatLng( request.latitude , request.longitude );
                 var marker = new google.maps.Marker({
                     position: latLng,
                     map: map,
