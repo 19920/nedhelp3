@@ -35,7 +35,7 @@
 
                     <div class="btn-group btn-group-sm">
 
-                    <% if request.created_at < DateTime.now - (1.0) ||request.conversations_count == 2 %>
+                    <% if request.created_at < DateTime.now - (1.0) ||request.conversations_count == 5 %>
                     <%= link_to 'Republish', edit_request_path(request),class: "btn btn-warning" %>
                      <%= link_to 'destroy', request ,class: "btn btn-danger",method: :delete, data: { confirm: 'are you sure?'} %>
                     <%= link_to 'Details', request, class: "btn btn-info" %>
